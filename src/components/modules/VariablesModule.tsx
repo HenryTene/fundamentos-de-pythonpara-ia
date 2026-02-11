@@ -15,7 +15,7 @@ export const VariablesModule: React.FC = () => {
       </div>
 
       {/* Concepto: Qué es una variable */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">1</span>
           ¿Qué es una variable?
@@ -44,51 +44,47 @@ print("Es estudiante:", es_estudiante)`}
       </section>
 
       {/* Tipos de datos */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">2</span>
           Tipos de Datos Fundamentales
         </h3>
 
         <div className="grid sm:grid-cols-2 gap-4 mb-6">
-          {/* int */}
           <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
             <div className="flex items-center gap-2 mb-2">
               <span className="px-2 py-1 rounded bg-primary text-primary-foreground text-xs font-bold">int</span>
               <span className="font-semibold text-foreground">Entero</span>
             </div>
             <p className="text-sm text-muted-foreground mb-2">Números sin decimales</p>
-            <code className="text-sm font-mono text-foreground">edad = 25</code>
+            <code className="text-sm font-mono text-primary">edad = 25</code>
           </div>
 
-          {/* float */}
-          <div className="p-4 rounded-lg bg-secondary/5 border border-secondary/20">
+          <div className="p-4 rounded-lg bg-info/5 border border-info/20">
             <div className="flex items-center gap-2 mb-2">
-              <span className="px-2 py-1 rounded bg-secondary text-secondary-foreground text-xs font-bold">float</span>
+              <span className="px-2 py-1 rounded bg-info text-info-foreground text-xs font-bold">float</span>
               <span className="font-semibold text-foreground">Flotante</span>
             </div>
             <p className="text-sm text-muted-foreground mb-2">Números con decimales</p>
-            <code className="text-sm font-mono text-foreground">pi = 3.14159</code>
+            <code className="text-sm font-mono text-info">pi = 3.14159</code>
           </div>
 
-          {/* str */}
           <div className="p-4 rounded-lg bg-accent/5 border border-accent/20">
             <div className="flex items-center gap-2 mb-2">
               <span className="px-2 py-1 rounded bg-accent text-accent-foreground text-xs font-bold">str</span>
               <span className="font-semibold text-foreground">Cadena de texto</span>
             </div>
             <p className="text-sm text-muted-foreground mb-2">Texto entre comillas</p>
-            <code className="text-sm font-mono text-foreground">nombre = "Ana"</code>
+            <code className="text-sm font-mono text-accent">nombre = "Ana"</code>
           </div>
 
-          {/* bool */}
-          <div className="p-4 rounded-lg bg-warning/5 border border-warning/20">
+          <div className="p-4 rounded-lg bg-success/5 border border-success/20">
             <div className="flex items-center gap-2 mb-2">
-              <span className="px-2 py-1 rounded bg-warning text-warning-foreground text-xs font-bold">bool</span>
+              <span className="px-2 py-1 rounded bg-success text-success-foreground text-xs font-bold">bool</span>
               <span className="font-semibold text-foreground">Booleano</span>
             </div>
             <p className="text-sm text-muted-foreground mb-2">Verdadero o Falso</p>
-            <code className="text-sm font-mono text-foreground">activo = True</code>
+            <code className="text-sm font-mono text-success">activo = True</code>
           </div>
         </div>
 
@@ -109,7 +105,7 @@ print("True es tipo:", type(booleano))`}
       </section>
 
       {/* Conversión de tipos */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">3</span>
           Conversión de Tipos (Casting)
@@ -129,22 +125,22 @@ print("True es tipo:", type(booleano))`}
             </thead>
             <tbody className="text-muted-foreground">
               <tr className="border-b border-border/50">
-                <td className="py-3 px-4 font-mono">int()</td>
+                <td className="py-3 px-4 font-mono text-primary">int()</td>
                 <td className="py-3 px-4">Entero</td>
                 <td className="py-3 px-4 font-mono">int("25") → 25</td>
               </tr>
               <tr className="border-b border-border/50">
-                <td className="py-3 px-4 font-mono">float()</td>
+                <td className="py-3 px-4 font-mono text-primary">float()</td>
                 <td className="py-3 px-4">Flotante</td>
                 <td className="py-3 px-4 font-mono">float("3.14") → 3.14</td>
               </tr>
               <tr className="border-b border-border/50">
-                <td className="py-3 px-4 font-mono">str()</td>
+                <td className="py-3 px-4 font-mono text-primary">str()</td>
                 <td className="py-3 px-4">Texto</td>
                 <td className="py-3 px-4 font-mono">str(100) → "100"</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-mono">bool()</td>
+                <td className="py-3 px-4 font-mono text-primary">bool()</td>
                 <td className="py-3 px-4">Booleano</td>
                 <td className="py-3 px-4 font-mono">bool(1) → True</td>
               </tr>
@@ -174,7 +170,7 @@ print(mensaje)`}
       </section>
 
       {/* Ejemplo IA */}
-      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border border-primary/20">
+      <section className="bg-gradient-to-br from-primary/10 to-info/10 rounded-xl p-6 border border-primary/20">
         <h3 className="text-xl font-semibold text-foreground mb-4">🤖 Aplicación en IA</h3>
         <p className="text-muted-foreground mb-4">
           En IA y análisis de datos, los tipos de datos son fundamentales. Por ejemplo, 
@@ -184,9 +180,12 @@ print(mensaje)`}
         <CodeEditor
           title="ejemplo_ia.py"
           initialCode={`# Predicción de un modelo de IA
-probabilidad = 0.87  # float: probabilidad de spam
-es_spam = probabilidad > 0.5  # bool: decisión
-confianza = int(probabilidad * 100)  # int: porcentaje
+# float: probabilidad de spam
+probabilidad = 0.87
+# bool: decisión basada en umbral
+es_spam = probabilidad > 0.5
+# int: porcentaje de confianza
+confianza = int(probabilidad * 100)
 
 print("Probabilidad:", probabilidad)
 print("¿Es spam?:", es_spam)

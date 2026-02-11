@@ -15,7 +15,7 @@ export const BuclesModule: React.FC = () => {
       </div>
 
       {/* Visualización */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4">🔄 ¿Por qué usar bucles?</h3>
         
         <div className="grid md:grid-cols-2 gap-4">
@@ -44,17 +44,17 @@ print(5)
       </section>
 
       {/* Bucle for */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">1</span>
           Bucle for
         </h3>
         <p className="text-muted-foreground mb-4">
-          <code className="bg-muted px-1 rounded">for</code> itera sobre una secuencia (lista, tupla, rango, string).
+          <code className="bg-muted px-1.5 py-0.5 rounded text-accent">for</code> itera sobre una secuencia (lista, tupla, rango, string).
           Ideal cuando <strong className="text-foreground">sabes cuántas veces</strong> necesitas repetir.
         </p>
 
-        <div className="bg-muted/50 rounded-lg p-4 mb-4 font-mono text-sm">
+        <div className="bg-muted/50 rounded-lg p-4 mb-4 font-mono text-sm border border-border">
           <span className="code-keyword">for</span> variable <span className="code-keyword">in</span> secuencia<span className="text-muted-foreground">:</span>
           <br />
           <span className="text-muted-foreground ml-4"># código a repetir</span>
@@ -83,13 +83,13 @@ for num in range(0, 10, 2):
       </section>
 
       {/* for con índice */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">2</span>
           for con índice (enumerate)
         </h3>
         <p className="text-muted-foreground mb-4">
-          <code className="bg-muted px-1 rounded">enumerate()</code> te da el índice y el valor al mismo tiempo:
+          <code className="bg-muted px-1.5 py-0.5 rounded text-accent">enumerate()</code> te da el índice y el valor al mismo tiempo:
         </p>
 
         <CodeEditor
@@ -109,18 +109,18 @@ for num, nombre in enumerate(nombres, start=1):
       </section>
 
       {/* Bucle while */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center text-sm font-bold">3</span>
+          <span className="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center text-sm font-bold">3</span>
           Bucle while
         </h3>
         <p className="text-muted-foreground mb-4">
-          <code className="bg-muted px-1 rounded">while</code> repite mientras una condición sea verdadera.
+          <code className="bg-muted px-1.5 py-0.5 rounded text-accent">while</code> repite mientras una condición sea verdadera.
           Ideal cuando <strong className="text-foreground">no sabes cuántas veces</strong> necesitas repetir.
         </p>
 
         <div className="bg-warning/10 border border-warning/30 rounded-lg p-4 mb-4">
-          <p className="text-sm text-warning-foreground">
+          <p className="text-sm text-foreground">
             ⚠️ <strong>Cuidado:</strong> Asegúrate de que la condición eventualmente sea False, 
             o el bucle será infinito.
           </p>
@@ -143,14 +143,15 @@ print("---")
 numero = 1
 while numero <= 100:
     print(numero)
-    numero = numero * 2  # Duplicar`}
+    # Duplicar el número en cada vuelta
+    numero = numero * 2`}
         />
       </section>
 
       {/* break y continue */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center text-sm font-bold">4</span>
+          <span className="w-8 h-8 rounded-lg bg-info/10 text-info flex items-center justify-center text-sm font-bold">4</span>
           Control de bucles: break y continue
         </h3>
 
@@ -162,7 +163,7 @@ while numero <= 100:
             </p>
           </div>
           <div className="p-4 rounded-lg bg-warning/10 border border-warning/30">
-            <code className="text-warning font-bold text-lg">continue</code>
+            <code className="text-accent font-bold text-lg">continue</code>
             <p className="text-sm text-muted-foreground mt-2">
               <strong>Salta</strong> a la siguiente iteración
             </p>
@@ -192,7 +193,7 @@ for i in range(6):
       </section>
 
       {/* Ejemplo IA */}
-      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border border-primary/20">
+      <section className="bg-gradient-to-br from-primary/10 to-info/10 rounded-xl p-6 border border-primary/20">
         <h3 className="text-xl font-semibold text-foreground mb-4">🤖 Aplicación en IA</h3>
         <p className="text-muted-foreground mb-4">
           Los bucles son esenciales para procesar datasets y entrenar modelos:
@@ -250,7 +251,7 @@ print(f"Tasa de spam: {spam_count/len(predicciones)*100}%")`}
       </section>
 
       {/* Práctica */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4">💻 Reto: Filtrar datos</h3>
         <p className="text-muted-foreground mb-4">
           Usa un bucle para filtrar y contar solo los valores mayores a 50:

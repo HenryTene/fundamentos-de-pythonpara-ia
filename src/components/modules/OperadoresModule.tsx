@@ -15,7 +15,7 @@ export const OperadoresModule: React.FC = () => {
       </div>
 
       {/* Operadores Aritméticos */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">1</span>
           Operadores Aritméticos
@@ -36,43 +36,43 @@ export const OperadoresModule: React.FC = () => {
                 <td className="py-3 px-4 text-primary font-bold">+</td>
                 <td className="py-3 px-4 font-sans">Suma</td>
                 <td className="py-3 px-4">10 + 3</td>
-                <td className="py-3 px-4">13</td>
+                <td className="py-3 px-4 text-accent">13</td>
               </tr>
               <tr className="border-b border-border/50">
                 <td className="py-3 px-4 text-primary font-bold">-</td>
                 <td className="py-3 px-4 font-sans">Resta</td>
                 <td className="py-3 px-4">10 - 3</td>
-                <td className="py-3 px-4">7</td>
+                <td className="py-3 px-4 text-accent">7</td>
               </tr>
               <tr className="border-b border-border/50">
                 <td className="py-3 px-4 text-primary font-bold">*</td>
                 <td className="py-3 px-4 font-sans">Multiplicación</td>
                 <td className="py-3 px-4">10 * 3</td>
-                <td className="py-3 px-4">30</td>
+                <td className="py-3 px-4 text-accent">30</td>
               </tr>
               <tr className="border-b border-border/50">
                 <td className="py-3 px-4 text-primary font-bold">/</td>
                 <td className="py-3 px-4 font-sans">División</td>
                 <td className="py-3 px-4">10 / 3</td>
-                <td className="py-3 px-4">3.333...</td>
+                <td className="py-3 px-4 text-accent">3.333...</td>
               </tr>
               <tr className="border-b border-border/50">
                 <td className="py-3 px-4 text-primary font-bold">//</td>
                 <td className="py-3 px-4 font-sans">División entera</td>
                 <td className="py-3 px-4">10 // 3</td>
-                <td className="py-3 px-4">3</td>
+                <td className="py-3 px-4 text-accent">3</td>
               </tr>
               <tr className="border-b border-border/50">
                 <td className="py-3 px-4 text-primary font-bold">%</td>
                 <td className="py-3 px-4 font-sans">Módulo (resto)</td>
                 <td className="py-3 px-4">10 % 3</td>
-                <td className="py-3 px-4">1</td>
+                <td className="py-3 px-4 text-accent">1</td>
               </tr>
               <tr>
                 <td className="py-3 px-4 text-primary font-bold">**</td>
                 <td className="py-3 px-4 font-sans">Potencia</td>
                 <td className="py-3 px-4">2 ** 3</td>
-                <td className="py-3 px-4">8</td>
+                <td className="py-3 px-4 text-accent">8</td>
               </tr>
             </tbody>
           </table>
@@ -95,13 +95,13 @@ print("Potencia:", a ** 2)`}
       </section>
 
       {/* Operadores de Comparación */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">2</span>
           Operadores de Comparación
         </h3>
         <p className="text-muted-foreground mb-4">
-          Comparan dos valores y devuelven <code className="bg-muted px-1 rounded">True</code> o <code className="bg-muted px-1 rounded">False</code>:
+          Comparan dos valores y devuelven <code className="bg-muted px-1.5 py-0.5 rounded text-accent">True</code> o <code className="bg-muted px-1.5 py-0.5 rounded text-accent">False</code>:
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
@@ -116,7 +116,7 @@ print("Potencia:", a ** 2)`}
             <div key={item.op} className="p-3 rounded-lg bg-muted/50 border border-border">
               <code className="text-primary font-bold text-lg">{item.op}</code>
               <p className="text-sm text-muted-foreground mt-1">{item.name}</p>
-              <code className="text-xs font-mono">{item.ex}</code>
+              <code className="text-xs font-mono text-accent">{item.ex}</code>
             </div>
           ))}
         </div>
@@ -137,7 +137,7 @@ print("y <= 5:", y <= 5)`}
       </section>
 
       {/* Operadores Lógicos */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">3</span>
           Operadores Lógicos
@@ -191,7 +191,7 @@ print("¿Salir a pasear?:", salir_a_pasear)`}
       </section>
 
       {/* Ejemplo IA */}
-      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border border-primary/20">
+      <section className="bg-gradient-to-br from-primary/10 to-info/10 rounded-xl p-6 border border-primary/20">
         <h3 className="text-xl font-semibold text-foreground mb-4">🤖 Aplicación en IA</h3>
         <p className="text-muted-foreground mb-4">
           Los operadores son esenciales para filtrar datos y tomar decisiones en modelos de IA:

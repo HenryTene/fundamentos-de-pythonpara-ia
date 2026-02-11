@@ -15,14 +15,14 @@ export const EstructurasModule: React.FC = () => {
       </div>
 
       {/* Listas */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">1</span>
           Listas [ ]
         </h3>
         <p className="text-muted-foreground mb-4">
           Las listas son colecciones <strong className="text-foreground">ordenadas y modificables</strong>. 
-          Se crean con corchetes <code className="bg-muted px-1 rounded">[]</code> y pueden contener cualquier tipo de dato.
+          Se crean con corchetes <code className="bg-muted px-1.5 py-0.5 rounded text-accent">[]</code> y pueden contener cualquier tipo de dato.
         </p>
 
         <div className="grid sm:grid-cols-3 gap-3 mb-4">
@@ -59,21 +59,21 @@ frutas[1] = "mango"
 print("Lista modificada:", frutas)`}
         />
 
-        <div className="mt-4 bg-muted/50 rounded-lg p-4">
+        <div className="mt-4 bg-muted/50 rounded-lg p-4 border border-border">
           <h4 className="font-semibold text-foreground mb-2">Métodos comunes de listas:</h4>
           <div className="grid sm:grid-cols-2 gap-2 text-sm">
-            <code className="bg-background px-2 py-1 rounded">.append(x) - Agrega al final</code>
-            <code className="bg-background px-2 py-1 rounded">.remove(x) - Elimina elemento</code>
-            <code className="bg-background px-2 py-1 rounded">.pop() - Elimina último</code>
-            <code className="bg-background px-2 py-1 rounded">.sort() - Ordena la lista</code>
+            <code className="bg-background px-2 py-1 rounded text-primary">.append(x) - Agrega al final</code>
+            <code className="bg-background px-2 py-1 rounded text-primary">.remove(x) - Elimina elemento</code>
+            <code className="bg-background px-2 py-1 rounded text-primary">.pop() - Elimina último</code>
+            <code className="bg-background px-2 py-1 rounded text-primary">.sort() - Ordena la lista</code>
           </div>
         </div>
       </section>
 
       {/* Diccionarios */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center text-sm font-bold">2</span>
+          <span className="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center text-sm font-bold">2</span>
           Diccionarios {'{ }'}
         </h3>
         <p className="text-muted-foreground mb-4">
@@ -108,9 +108,9 @@ print("Valores:", list(persona.values()))`}
       </section>
 
       {/* Tuplas */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center text-sm font-bold">3</span>
+          <span className="w-8 h-8 rounded-lg bg-info/10 text-info flex items-center justify-center text-sm font-bold">3</span>
           Tuplas ( )
         </h3>
         <p className="text-muted-foreground mb-4">
@@ -149,14 +149,15 @@ print("Cantidad de días:", len(dias))
 # - Datos que no deben cambiar
 
 punto = (100, 200)
-x, y = punto  # Desempaquetado
+# Desempaquetado de tupla
+x, y = punto
 print("X:", x)
 print("Y:", y)`}
         />
       </section>
 
       {/* Comparativa */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4">📊 Comparativa</h3>
         
         <div className="overflow-x-auto">
@@ -165,8 +166,8 @@ print("Y:", y)`}
               <tr className="border-b border-border">
                 <th className="text-left py-3 px-4 font-semibold text-foreground">Característica</th>
                 <th className="text-left py-3 px-4 font-semibold text-primary">Lista [ ]</th>
-                <th className="text-left py-3 px-4 font-semibold text-secondary">Dict {'{ }'}</th>
-                <th className="text-left py-3 px-4 font-semibold text-accent">Tupla ( )</th>
+                <th className="text-left py-3 px-4 font-semibold text-accent">Dict {'{ }'}</th>
+                <th className="text-left py-3 px-4 font-semibold text-info">Tupla ( )</th>
               </tr>
             </thead>
             <tbody className="text-muted-foreground">
@@ -200,7 +201,7 @@ print("Y:", y)`}
       </section>
 
       {/* Ejemplo IA */}
-      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border border-primary/20">
+      <section className="bg-gradient-to-br from-primary/10 to-info/10 rounded-xl p-6 border border-primary/20">
         <h3 className="text-xl font-semibold text-foreground mb-4">🤖 Aplicación en IA</h3>
         <p className="text-muted-foreground mb-4">
           Las estructuras de datos son fundamentales para manejar datasets y resultados de modelos:
@@ -225,7 +226,8 @@ print("Precisión del modelo:", metricas["precision"])
 print("Mejor predicción:", max(predicciones))
 
 # Tupla para representar dimensiones de imagen
-imagen_dims = (224, 224, 3)  # alto, ancho, canales
+# formato: (alto, ancho, canales)
+imagen_dims = (224, 224, 3)
 print("Dimensiones de entrada:", imagen_dims)`}
         />
       </section>

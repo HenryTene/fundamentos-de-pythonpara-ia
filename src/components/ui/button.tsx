@@ -14,22 +14,22 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-destructive-foreground shadow-md hover:bg-destructive/90",
         outline:
-          "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground",
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-md hover:bg-secondary/90 hover:shadow-lg",
-        ghost: "hover:bg-muted hover:text-foreground",
+          "bg-secondary text-secondary-foreground shadow-md hover:bg-secondary/80",
+        ghost: "hover:bg-accent/10 hover:text-accent",
         link: "text-primary underline-offset-4 hover:underline",
         success:
           "bg-success text-success-foreground shadow-md hover:bg-success/90",
         hero:
-          "bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-lg hover:shadow-glow hover:-translate-y-1 active:translate-y-0",
+          "bg-gradient-to-r from-primary to-emerald-400 text-primary-foreground shadow-glow hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0",
         code:
           "bg-code-bg text-code-foreground font-mono hover:bg-code-bg/80 border border-border/50",
       },
       size: {
-        default: "h-11 px-5 py-2",
+        default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3 text-xs",
-        lg: "h-12 rounded-lg px-8 text-base",
+        lg: "h-11 rounded-md px-8",
         xl: "h-14 rounded-xl px-10 text-lg",
         icon: "h-10 w-10",
       },

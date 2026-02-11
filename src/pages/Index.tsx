@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Code, Brain, GraduationCap } from 'lucide-react';
+import { Menu, X, Code, Brain, GraduationCap, Terminal } from 'lucide-react';
 import { ModuleNavigation, modules } from '@/components/ModuleNavigation';
 import { SintaxisModule } from '@/components/modules/SintaxisModule';
 import { VariablesModule } from '@/components/modules/VariablesModule';
@@ -18,7 +18,6 @@ const Index = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleModuleChange = (moduleId: string) => {
-    // Mark previous module as completed
     if (!completedModules.includes(currentModule)) {
       setCompletedModules([...completedModules, currentModule]);
     }
@@ -54,6 +53,7 @@ const Index = () => {
   const currentIndex = modules.findIndex(m => m.id === currentModule);
   const prevModule = currentIndex > 0 ? modules[currentIndex - 1] : null;
   const nextModule = currentIndex < modules.length - 1 ? modules[currentIndex + 1] : null;
+  const progress = ((completedModules.length + 1) / modules.length) * 100;
 
   return (
     <div className="min-h-screen bg-background">
@@ -69,9 +69,9 @@ const Index = () => {
             >
               {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
-                <Brain className="h-6 w-6 text-primary-foreground" />
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-emerald-400 flex items-center justify-center shadow-glow">
+                <Terminal className="h-5 w-5 text-primary-foreground" />
               </div>
               <div>
                 <h1 className="text-lg font-bold gradient-text">DATA SCIENCE ANALYSIS</h1>
@@ -80,14 +80,14 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <span className="text-sm text-muted-foreground hidden md:block">
-              Progreso: {completedModules.length + 1}/{modules.length}
+              {completedModules.length + 1}/{modules.length}
             </span>
-            <div className="w-24 h-2 bg-muted rounded-full overflow-hidden hidden md:block">
+            <div className="w-28 h-2 bg-secondary rounded-full overflow-hidden hidden md:block">
               <div 
-                className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-500"
-                style={{ width: `${((completedModules.length + 1) / modules.length) * 100}%` }}
+                className="h-full bg-gradient-to-r from-primary to-emerald-400 transition-all duration-500 rounded-full"
+                style={{ width: `${progress}%` }}
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ const Index = () => {
       <div className="flex">
         {/* Sidebar */}
         <aside className={cn(
-          "fixed inset-y-0 left-0 z-40 w-80 bg-sidebar border-r border-sidebar-border transform transition-transform duration-300 lg:relative lg:translate-x-0 pt-16 lg:pt-0",
+          "fixed inset-y-0 left-0 z-40 w-[280px] bg-sidebar border-r border-sidebar-border transform transition-transform duration-300 lg:relative lg:translate-x-0 pt-16 lg:pt-0",
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}>
           <div className="h-full overflow-y-auto p-4">
@@ -116,9 +116,9 @@ const Index = () => {
               completedModules={completedModules}
             />
             
-            <div className="mt-8 p-4 bg-sidebar-accent rounded-lg">
+            <div className="mt-8 p-4 bg-sidebar-accent rounded-lg border border-border">
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Material didáctico elaborado por <strong className="text-sidebar-foreground">Henry Tene Torres</strong> para efectos educativos.
+                Material didáctico elaborado por <strong className="text-primary">Henry Tene Torres</strong> para efectos educativos.
               </p>
             </div>
           </div>
@@ -127,7 +127,7 @@ const Index = () => {
         {/* Overlay for mobile */}
         {sidebarOpen && (
           <div 
-            className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-30 lg:hidden"
+            className="fixed inset-0 bg-background/60 backdrop-blur-sm z-30 lg:hidden"
             onClick={() => setSidebarOpen(false)}
           />
         )}
@@ -137,10 +137,10 @@ const Index = () => {
           <div className="max-w-4xl mx-auto px-4 py-8 lg:px-8">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-              <Code className="h-4 w-4" />
+              <Code className="h-4 w-4 text-primary" />
               <span>Python para IA</span>
-              <span>/</span>
-              <span className="text-foreground font-medium">{currentModuleData?.title}</span>
+              <span className="text-border">/</span>
+              <span className="text-primary font-medium">{currentModuleData?.title}</span>
             </div>
 
             {/* Module Content */}

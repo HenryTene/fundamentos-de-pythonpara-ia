@@ -16,7 +16,7 @@ export const ProyectoModule: React.FC = () => {
       </div>
 
       {/* Objetivo */}
-      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border border-primary/20">
+      <section className="bg-gradient-to-br from-primary/10 to-info/10 rounded-xl p-6 border border-primary/20">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <Target className="h-5 w-5 text-primary" />
           Objetivo del Proyecto
@@ -24,7 +24,7 @@ export const ProyectoModule: React.FC = () => {
         <p className="text-muted-foreground mb-4">
           Crearás un programa que analiza opiniones de clientes y las clasifica como 
           <span className="text-success font-semibold"> positivas</span>, 
-          <span className="text-warning font-semibold"> neutrales</span> o 
+          <span className="text-accent font-semibold"> neutrales</span> o 
           <span className="text-destructive font-semibold"> negativas</span> 
           según palabras clave.
         </p>
@@ -48,7 +48,7 @@ export const ProyectoModule: React.FC = () => {
       </section>
 
       {/* Paso 1 */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">1</span>
           Definir los datos
@@ -81,7 +81,7 @@ print("Opiniones a analizar:", len(opiniones))`}
       </section>
 
       {/* Paso 2 */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">2</span>
           Crear la función de análisis
@@ -131,7 +131,7 @@ print(f"Sentimiento: {resultado}")`}
       </section>
 
       {/* Paso 3 */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">3</span>
           Procesar todas las opiniones
@@ -198,7 +198,7 @@ print(f"Neutrales: {total_neutrales}")`}
       </section>
 
       {/* Proyecto completo */}
-      <section className="bg-card rounded-xl p-6 shadow-md border-2 border-primary">
+      <section className="bg-card rounded-xl p-6 shadow-card border-2 border-primary">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <Rocket className="h-5 w-5 text-primary" />
           Proyecto Completo
@@ -295,7 +295,7 @@ if resultados["positivo"] > resultados["negativo"]:
       {/* Desafíos extra */}
       <section className="bg-muted/30 rounded-xl p-6 border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-          <Lightbulb className="h-5 w-5 text-warning" />
+          <Lightbulb className="h-5 w-5 text-accent" />
           Desafíos Extra
         </h3>
         <p className="text-muted-foreground mb-4">
