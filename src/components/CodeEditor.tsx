@@ -254,15 +254,6 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const highlightCode = (code: string) => {
-    return code
-      .replace(/(#.*$)/gm, '<span class="code-comment">$1</span>')
-      .replace(/\b(def|class|if|elif|else|for|while|return|import|from|as|try|except|finally|with|True|False|None|and|or|not|in|is|lambda|yield|break|continue|pass|raise|global|nonlocal|assert|del)\b/g, '<span class="code-keyword">$1</span>')
-      .replace(/\b(print|len|range|type|int|float|str|bool|list|dict|tuple|set|input|open|sum|max|min|abs|round)\b/g, '<span class="text-warning">$1</span>')
-      .replace(/(["'])(?:(?=(\\?))\2.)*?\1/g, '<span class="code-string">$&</span>')
-      .replace(/\b(\d+\.?\d*)\b/g, '<span class="code-number">$1</span>');
-  };
-
   return (
     <div className="rounded-xl overflow-hidden border border-border shadow-lg">
       {/* Header */}

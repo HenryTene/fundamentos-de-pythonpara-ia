@@ -17,14 +17,14 @@ export const SintaxisModule: React.FC = () => {
       </div>
 
       {/* Concepto 1: Indentación */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">1</span>
           Indentación (Sangría)
         </h3>
         <p className="text-muted-foreground mb-4">
           Python usa la <strong className="text-foreground">indentación</strong> (espacios al inicio de línea) para definir bloques de código. 
-          A diferencia de otros lenguajes que usan llaves <code className="bg-muted px-1 rounded">{'{}'}</code>, 
+          A diferencia de otros lenguajes que usan llaves <code className="bg-muted px-1.5 py-0.5 rounded text-accent">{'{}'}</code>, 
           Python requiere que mantengas una sangría consistente.
         </p>
         
@@ -47,22 +47,24 @@ export const SintaxisModule: React.FC = () => {
             </div>
             <pre className="font-mono text-sm text-foreground">
 {`if True:
-print("Hola")  # Error!
-  print("Mundo")  # Error!`}
+# Error: falta indentación
+print("Hola")
+  # Error: indentación inconsistente
+  print("Mundo")`}
             </pre>
           </div>
         </div>
 
-        <div className="bg-muted/50 rounded-lg p-4">
+        <div className="bg-muted/50 rounded-lg p-4 border border-border">
           <p className="text-sm text-muted-foreground">
-            💡 <strong>Tip:</strong> Usa 4 espacios para cada nivel de indentación. 
+            💡 <strong className="text-accent">Tip:</strong> Usa 4 espacios para cada nivel de indentación. 
             La mayoría de editores lo configuran automáticamente.
           </p>
         </div>
       </section>
 
       {/* Concepto 2: Comentarios */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">2</span>
           Comentarios
@@ -77,25 +79,27 @@ print("Hola")  # Error!
           initialCode={`# Esto es un comentario de una línea
 # Python ignora todo lo que está después del #
 
-nombre = "Ana"  # Comentario al final de una línea
+# Asignamos un nombre
+nombre = "Ana"
 
 # Los comentarios ayudan a:
 # - Explicar código complejo
 # - Documentar tu lógica
 # - Dejar notas para ti o tu equipo
 
-print(nombre)  # Imprime: Ana`}
+# Imprime el valor de la variable
+print(nombre)`}
         />
       </section>
 
       {/* Concepto 3: Print */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">3</span>
           La función print()
         </h3>
         <p className="text-muted-foreground mb-4">
-          <code className="bg-muted px-1 rounded">print()</code> es la función que usamos para mostrar información en la consola. 
+          <code className="bg-muted px-1.5 py-0.5 rounded text-accent">print()</code> es la función que usamos para mostrar información en la consola. 
           Es fundamental para ver los resultados de tu código.
         </p>
 
@@ -118,7 +122,7 @@ print("Segunda línea")`}
       </section>
 
       {/* Concepto 4: Nombres de variables */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">4</span>
           Reglas para nombrar variables
@@ -136,33 +140,33 @@ print("Segunda línea")`}
             <tbody className="text-muted-foreground">
               <tr className="border-b border-border/50">
                 <td className="py-3 px-4">Empieza con letra o _</td>
-                <td className="py-3 px-4 font-mono">nombre, _edad</td>
-                <td className="py-3 px-4 font-mono">1nombre, @edad</td>
+                <td className="py-3 px-4 font-mono text-success">nombre, _edad</td>
+                <td className="py-3 px-4 font-mono text-destructive">1nombre, @edad</td>
               </tr>
               <tr className="border-b border-border/50">
                 <td className="py-3 px-4">Solo letras, números, _</td>
-                <td className="py-3 px-4 font-mono">mi_variable2</td>
-                <td className="py-3 px-4 font-mono">mi-variable, mi variable</td>
+                <td className="py-3 px-4 font-mono text-success">mi_variable2</td>
+                <td className="py-3 px-4 font-mono text-destructive">mi-variable, mi variable</td>
               </tr>
               <tr className="border-b border-border/50">
                 <td className="py-3 px-4">Distingue mayúsculas</td>
-                <td className="py-3 px-4 font-mono">Edad ≠ edad ≠ EDAD</td>
+                <td className="py-3 px-4 font-mono text-success">Edad ≠ edad ≠ EDAD</td>
                 <td className="py-3 px-4">—</td>
               </tr>
               <tr>
                 <td className="py-3 px-4">No usar palabras reservadas</td>
-                <td className="py-3 px-4 font-mono">mi_if, clase</td>
-                <td className="py-3 px-4 font-mono">if, class, for</td>
+                <td className="py-3 px-4 font-mono text-success">mi_if, clase</td>
+                <td className="py-3 px-4 font-mono text-destructive">if, class, for</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div className="bg-muted/50 rounded-lg p-4">
+        <div className="bg-muted/50 rounded-lg p-4 border border-border">
           <p className="text-sm text-muted-foreground">
-            💡 <strong>Convención:</strong> En Python usamos <code className="bg-background px-1 rounded">snake_case</code> para 
-            variables y funciones: <code className="bg-background px-1 rounded">mi_variable</code>, 
-            <code className="bg-background px-1 rounded">calcular_promedio</code>
+            💡 <strong className="text-accent">Convención:</strong> En Python usamos <code className="bg-muted px-1.5 py-0.5 rounded text-primary">snake_case</code> para 
+            variables y funciones: <code className="bg-muted px-1.5 py-0.5 rounded text-primary">mi_variable</code>, 
+            <code className="bg-muted px-1.5 py-0.5 rounded text-primary">calcular_promedio</code>
           </p>
         </div>
       </section>
@@ -185,7 +189,7 @@ print("Segunda línea")`}
       </section>
 
       {/* Practica tu código */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4">💻 Practica tu código</h3>
         <p className="text-muted-foreground mb-4">
           Modifica el código para imprimir tu nombre y un mensaje de bienvenida:

@@ -15,7 +15,7 @@ export const CondicionalesModule: React.FC = () => {
       </div>
 
       {/* Diagrama visual */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4">🔀 Flujo de decisiones</h3>
         
         <div className="flex flex-col items-center gap-4 py-6">
@@ -42,16 +42,16 @@ export const CondicionalesModule: React.FC = () => {
       </section>
 
       {/* if básico */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">1</span>
           La sentencia if
         </h3>
         <p className="text-muted-foreground mb-4">
-          <code className="bg-muted px-1 rounded">if</code> evalúa una condición. Si es verdadera, ejecuta el bloque de código indentado.
+          <code className="bg-muted px-1.5 py-0.5 rounded text-accent">if</code> evalúa una condición. Si es verdadera, ejecuta el bloque de código indentado.
         </p>
 
-        <div className="bg-muted/50 rounded-lg p-4 mb-4 font-mono text-sm">
+        <div className="bg-muted/50 rounded-lg p-4 mb-4 font-mono text-sm border border-border">
           <span className="code-keyword">if</span> condición<span className="text-muted-foreground">:</span>
           <br />
           <span className="text-muted-foreground ml-4"># código a ejecutar si es True</span>
@@ -71,13 +71,13 @@ print("Fin del programa")`}
       </section>
 
       {/* if-else */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">2</span>
           if-else: Dos caminos
         </h3>
         <p className="text-muted-foreground mb-4">
-          <code className="bg-muted px-1 rounded">else</code> define qué hacer cuando la condición es falsa.
+          <code className="bg-muted px-1.5 py-0.5 rounded text-accent">else</code> define qué hacer cuando la condición es falsa.
         </p>
 
         <CodeEditor
@@ -97,13 +97,13 @@ print("¡Que tengas buen día!")`}
       </section>
 
       {/* if-elif-else */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">3</span>
           if-elif-else: Múltiples opciones
         </h3>
         <p className="text-muted-foreground mb-4">
-          <code className="bg-muted px-1 rounded">elif</code> (else if) permite evaluar múltiples condiciones en secuencia.
+          <code className="bg-muted px-1.5 py-0.5 rounded text-accent">elif</code> (else if) permite evaluar múltiples condiciones en secuencia.
         </p>
 
         <CodeEditor
@@ -127,13 +127,13 @@ print("Tu calificación fue:", calificacion)`}
       </section>
 
       {/* Condiciones compuestas */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-sm font-bold">4</span>
           Condiciones compuestas
         </h3>
         <p className="text-muted-foreground mb-4">
-          Usa operadores lógicos (<code className="bg-muted px-1 rounded">and</code>, <code className="bg-muted px-1 rounded">or</code>, <code className="bg-muted px-1 rounded">not</code>) para combinar condiciones:
+          Usa operadores lógicos (<code className="bg-muted px-1.5 py-0.5 rounded text-accent">and</code>, <code className="bg-muted px-1.5 py-0.5 rounded text-accent">or</code>, <code className="bg-muted px-1.5 py-0.5 rounded text-accent">not</code>) para combinar condiciones:
         </p>
 
         <CodeEditor
@@ -162,7 +162,7 @@ if edad >= 18 and tiene_licencia and not tiene_multas:
       </section>
 
       {/* Ejemplo IA */}
-      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border border-primary/20">
+      <section className="bg-gradient-to-br from-primary/10 to-info/10 rounded-xl p-6 border border-primary/20">
         <h3 className="text-xl font-semibold text-foreground mb-4">🤖 Aplicación en IA</h3>
         <p className="text-muted-foreground mb-4">
           Los condicionales son esenciales para tomar decisiones basadas en predicciones de modelos:
@@ -224,7 +224,7 @@ print("Probabilidad de spam:", probabilidad_spam)`}
       </section>
 
       {/* Práctica */}
-      <section className="bg-card rounded-xl p-6 shadow-md border border-border">
+      <section className="bg-card rounded-xl p-6 shadow-card border border-border">
         <h3 className="text-xl font-semibold text-foreground mb-4">💻 Reto: Clasificador de IMC</h3>
         <p className="text-muted-foreground mb-4">
           Modifica el código para clasificar el IMC (Índice de Masa Corporal):
@@ -240,8 +240,10 @@ print("Probabilidad de spam:", probabilidad_spam)`}
         <CodeEditor
           title="clasificador_imc.py"
           initialCode={`# Clasificador de IMC
-peso = 70  # kg
-altura = 1.75  # metros
+# Peso en kilogramos
+peso = 70
+# Altura en metros
+altura = 1.75
 
 # Calcular IMC
 imc = peso / (altura ** 2)
