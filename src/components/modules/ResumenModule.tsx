@@ -61,7 +61,7 @@ not  Invierte el valor
 --------------------------------------------------------------------------------
 LISTA [ ]
 - Ordenada, modificable, permite duplicados
-- frutas = ["manzana", "banana"]
+- frutas = ["manzana", "melón"]
 - frutas[0]  → "manzana"
 - frutas.append("naranja")
 
