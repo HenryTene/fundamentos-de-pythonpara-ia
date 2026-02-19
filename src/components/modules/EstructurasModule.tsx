@@ -43,7 +43,7 @@ export const EstructurasModule: React.FC = () => {
         <CodeEditor
           title="listas.py"
           initialCode={`# Crear una lista
-frutas = ["manzana", "banana", "naranja"]
+frutas = ["manzana", "melón", "naranja"]
 numeros = [1, 2, 3, 4, 5]
 mixta = ["texto", 42, True, 3.14]
 

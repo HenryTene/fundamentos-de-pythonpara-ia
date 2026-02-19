@@ -63,7 +63,7 @@ print(5)
         <CodeEditor
           title="for_basico.py"
           initialCode={`# Iterar sobre una lista
-frutas = ["manzana", "banana", "cereza"]
+frutas = ["manzana", "melón", "cereza"]
 
 for fruta in frutas:
     print("Me gusta la", fruta)
