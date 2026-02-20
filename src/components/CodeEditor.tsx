@@ -1,8 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Play, RotateCcw, Copy, Check } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import { executePython } from '@/lib/pythonInterpreter';
+
+const PYTHON_KEYWORDS = new Set([
+  'False','None','True','and','as','assert','async','await','break','class',
+  'continue','def','del','elif','else','except','finally','for','from','global',
+  'if','import','in','is','lambda','nonlocal','not','or','pass','raise',
+  'return','try','while','with','yield','print','range','len','type','int',
+  'float','str','list','dict','set','tuple','bool','input','enumerate','append',
+]);
+
+const BUILTINS = new Set(['print','range','len','type','int','float','str','list','dict','set','tuple','bool','input','enumerate']);
+
+function highlightLine(line: string): React.ReactNode[] {
+  // Comment line
+  const commentIdx = findCommentStart(line);
+  if (commentIdx === 0) {
+    return [<span key="c" className="text-code-comment italic">{line}</span>];
+  }
+
+  const parts: React.ReactNode[] = [];
+  const codePart = commentIdx >= 0 ? line.slice(0, commentIdx) : line;
+  const commentPart = commentIdx >= 0 ? line.slice(commentIdx) : null;
+
+  // Tokenize code part
+  const tokenRegex = /("""[\s\S]*?"""|'''[\s\S]*?'''|f"[^"]*"|f'[^']*'|"[^"]*"|'[^']*'|\b\d+\.?\d*\b|[a-zA-Z_]\w*|[^\s]|\s+)/g;
+  let match: RegExpExecArray | null;
+  let i = 0;
+  while ((match = tokenRegex.exec(codePart)) !== null) {
+    const token = match[0];
+    const key = `t${i++}`;
+    if (/^(f?["'])/.test(token) && (token.startsWith('"') || token.startsWith("'") || token.startsWith('f"') || token.startsWith("f'"))) {
+      parts.push(<span key={key} className="text-code-string">{token}</span>);
+    } else if (/^\d/.test(token)) {
+      parts.push(<span key={key} className="text-code-number">{token}</span>);
+    } else if (PYTHON_KEYWORDS.has(token)) {
+      parts.push(<span key={key} className={BUILTINS.has(token) ? "text-code-number" : "text-code-keyword font-semibold"}>{token}</span>);
+    } else if (token === '=' || token === '+' || token === '-' || token === '*' || token === '/' || token === '<' || token === '>' || token === '!' || token === ':') {
+      parts.push(<span key={key} className="text-foreground/70">{token}</span>);
+    } else {
+      parts.push(<span key={key}>{token}</span>);
+    }
+  }
+
+  if (commentPart) {
+    parts.push(<span key="comment" className="text-code-comment italic">{commentPart}</span>);
+  }
+
+  return parts;
+}
+
+function findCommentStart(line: string): number {
+  let inSingle = false, inDouble = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (ch === '"' && !inSingle) inDouble = !inDouble;
+    else if (ch === "'" && !inDouble) inSingle = !inSingle;
+    else if (ch === '#' && !inSingle && !inDouble) return i;
+  }
+  return -1;
+}
 
 interface CodeEditorProps {
   initialCode: string;
@@ -78,15 +137,28 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
         </div>
       </div>
 
-      {/* Code Area */}
+      {/* Code Area - overlay approach */}
       <div className="relative">
+        {/* Highlighted layer */}
+        <pre
+          className="w-full min-h-[200px] p-4 font-mono text-sm leading-relaxed bg-code-bg text-code-foreground whitespace-pre-wrap break-words pointer-events-none"
+          aria-hidden="true"
+        >
+          {code.split('\n').map((line, i) => (
+            <React.Fragment key={i}>
+              {i > 0 && '\n'}
+              {highlightLine(line)}
+            </React.Fragment>
+          ))}
+        </pre>
+        {/* Editable transparent textarea on top */}
         <textarea
           value={code}
           onChange={(e) => setCode(e.target.value)}
           readOnly={readOnly}
           className={cn(
-            "w-full min-h-[200px] p-4 font-mono text-sm resize-none focus:outline-none",
-            "bg-code-bg text-code-foreground leading-relaxed",
+            "absolute inset-0 w-full h-full p-4 font-mono text-sm resize-none focus:outline-none",
+            "bg-transparent text-transparent caret-code-foreground leading-relaxed",
             readOnly && "cursor-default"
           )}
           spellCheck={false}

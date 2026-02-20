@@ -158,6 +158,10 @@
 }
 
 @layer utilities {
+  .caret-code-foreground {
+    caret-color: hsl(var(--code-foreground));
+  }
+
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out;
   }
